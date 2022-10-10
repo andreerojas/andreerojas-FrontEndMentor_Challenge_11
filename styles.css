@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+span{
+    display: inline-block;
+}
+
+body,
+main,
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    flex-grow: 1;
+    max-height: 98%;
+    width: 100%;
+    color: hsl(236, 100%, 87%);
+    background-color: #F2F1EF;
+}
+
+footer {
+    flex-grow: 0;
+}
+
+section {
+    background-color: hsl(226, 43%, 10%);
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+}
+
+.grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(6, minmax(0,1fr));
+    gap: 1em;
+}
+
+.profile-container,
+.track-container {
+    width: 100%;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2,auto);
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 0.5em;
+}
+
+.contact {
+    background-color: hsl(246, 80%, 60%);
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    align-items: center;
+    column-gap: 1em;
+    border-radius: 0.5em;
+}
+
+.avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+    border : 2px solid white;
+}
+
+.contact span:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.contact span:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.options-container {
+    display: flex;
+    padding: 1em;
+    justify-content: space-between;
+
+}
+
+.option {
+    position: relative;
+}
+
+input[type="radio"] {
+    position: absolute;
+    margin: 0;
+    display: none;
+}
+
+.white-text,
+input[type="radio"]:checked+label,
+input[type="radio"]:hover+label {
+    color: white;
+    
+}
+
+input[type="radio"]:hover+label {
+    cursor: grab;
+}
+
+.small-text {
+    font-size: 0.6em;
+}
+
+.large-text {
+    font-size: 1.5em;
+}
+
+.track-container{
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+}
+
+.track-container:nth-child(2){
+    background-color:hsl(15, 100%, 70%) ;
+}
+
+.track-container:nth-child(3){
+    background-color: hsl(195, 74%, 62%);
+}
+
+.track-container:nth-child(4){
+    background-color:hsl(348, 100%, 68%) ;
+}
+
+.track-container:nth-child(5){
+    background-color:hsl(145, 58%, 55%) ;
+}
+
+.track-container:nth-child(6){
+    background-color: hsl(264, 64%, 52%) ;
+}
+
+.track-container:nth-child(7){
+    background-color: hsl(43, 84%, 65%);
+}
+
+.track-img{
+    position: absolute;
+    right: 1em;
+    top: -1em;
+    z-index: 1;
+    width: 3em;
+    height: 3em;
+}
+.track-info{
+    background-color: hsl(235, 46%, 20%);
+    width: 100%;
+    height: 80%;
+    border-radius: 0.5rem;
+    padding: 0.75em 1em;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    grid-template-rows: auto minmax(0,1fr);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.track-info:hover{
+    background-color: hsla(235, 45%, 61%,0.9);
+    cursor: grab;
+}
+
+.point:hover{
+    cursor: grab;
+}
+.duration{
+    font-size: 2em;
+}
+
+.last-duration{
+    font-size: 0.6em;
+}
+
+.points,.last-duration{
+    justify-self: end;
+}
+@media (min-width : 376px) {
+    section {
+        width: 80%;
+        height: 70%;
+    }
+
+    .grid {
+        width: 75%;
+        height: 60%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .profile-container {
+        grid-row: 1 / span 2;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+        grid-template-rows: 4rem;
+    }
+
+    .options-container {
+        flex-direction: column;
+    }
+
+    .avatar {
+        grid-row: 1;
+    }
+
+    .contact span:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2 / 3;
+    }
+
+    .contact span:nth-child(3) {
+        grid-column: 1;
+        grid-row: 3 / 4;
+    }
+    .duration{
+        grid-row: 2;
+    }
+    .last-duration{
+        grid-row: 3;
+    }
+
+}
